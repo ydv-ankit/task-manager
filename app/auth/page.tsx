@@ -42,7 +42,9 @@ export default function Auth() {
     async function onFormSubmit(data: z.infer<typeof FormSchema>) {
         setIsLoading(true);
         try {
-            await account.deleteSession("current").catch((err) => err);
+            const currentUser = await account.getSession("current");
+            if (currentUser)
+                await account.deleteSession("current").catch((err) => err);
             if (isLogin) {
                 const resp = await account.createEmailPasswordSession(
                     data.email,

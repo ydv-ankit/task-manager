@@ -1,14 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-
-export default function Home() {
-  return (
-    <div>
-      <Link href={"/auth"}>
-        <Button>Authenticate</Button>
-      </Link>
-    </div>
-  );
+export default function Page() {
+    return <div className="bg-[rgb(0,20,48)] h-screen"></div>;
 }
